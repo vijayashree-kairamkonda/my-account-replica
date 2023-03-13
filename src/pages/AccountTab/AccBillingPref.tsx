@@ -40,7 +40,7 @@ export const AccountBillingPreference = () => {
       <StyledCard>
         <CardHeader
           avatar={
-            <StyledIcon>
+            <StyledIcon iconColor="green">
               <DescriptionSharpIcon />
             </StyledIcon>
           }

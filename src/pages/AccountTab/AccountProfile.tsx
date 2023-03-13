@@ -16,13 +16,18 @@ export interface InputProps {
   margin?: boolean;
 }
 
+export interface IconProps {
+  iconColor?: string;
+  backgroundColor?: string;
+  padding?: boolean;
+}
 export const AccountProfile = () => {
   return (
     <>
       <StyledCard>
         <CardHeader
           avatar={
-            <StyledIcon>
+            <StyledIcon iconColor="green">
               <Person3RoundedIcon />
             </StyledIcon>
           }
@@ -60,12 +65,27 @@ export const AccountProfile = () => {
   );
 };
 
-export const StyledIcon = styled(Icon)(({ theme }) => ({
-  color: "green",
-  border: "1px solid green",
-  borderRadius: "50%",
-  padding: "5px",
-}));
+export const StyledIcon = styled(Icon)<IconProps>(
+  ({ theme, iconColor, backgroundColor, padding }) => ({
+    color:
+      iconColor === "green"
+        ? "green"
+        : iconColor === "primary"
+        ? "#d9dd3a"
+        : iconColor==="secondary"? "#9747ff": iconColor==="error"?"red": "white",
+    border:
+      iconColor === "primary"
+        ? "1px solid #d9dd3a"
+        : iconColor === "error"
+        ? "1px solid red"
+        : iconColor === "secondary"
+        ? "1px solid #9747ff"
+        : "1px solid green",
+    borderRadius: "50%",
+    padding: padding ? "10px" : "5px",
+    backgroundColor: backgroundColor === "green" ? "green" : "tranparent",
+  })
+);
 
 export const StyledCard = styled(Card)(({ theme }) => ({
   borderRadius: "0.5rem",

@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     color: black;
     margin: 0;
-    background: #f2f2f2
+    background: #ffffff
   }
   *{
     font-family: Gotham
@@ -34,10 +34,10 @@ position : sticky
 
 export const StyledBar = styled("section")<StyleBarProps>(
   ({ theme, boxShadow, background }) => ({
-    background: background ? "lightgrey" : "white",
+    background:  "#ffffff" ,
     paddingHorizontal: "80px",
     position: "sticky",
-    boxShadow: boxShadow ? "0px 8px 10px 0px rgb(193, 193, 193)" : "none",
+    boxShadow: boxShadow ? "0px 3px 4px 0px rgb(193, 193, 193)" : "none",
   })
 );
 

@@ -5,7 +5,7 @@ import { AccountProfile } from "./pages/AccountTab/AccountProfile";
 import { Account } from "./pages/AccountTab/Accounts";
 import { AccountSettings } from "./pages/AccountTab/AccountSettings";
 import { Billing } from "./pages/Billing";
-import { Home } from "./pages/Home";
+import { Home } from "./pages/Home/Home";
 import { Notifications } from "./pages/Notifications";
 import { Support } from "./pages/Support";
 

@@ -18,6 +18,7 @@ interface BoxProps {
 
 interface TextProps {
   color?: string;
+  padding? : boolean;
 }
 
 export interface State extends SnackbarOrigin {
@@ -48,9 +49,9 @@ export const BoxContent = styled("div")<BoxProps>(
   })
 );
 
-export const StyledP = styled("p")<TextProps>(({ theme, color }) => ({
+export const StyledP = styled("p")<TextProps>(({ theme, color,padding }) => ({
   color: color === "green" ? "green" : "black",
-  padding: "0.5rem 0",
+  padding:padding ?"0": "0.5rem 0",
 }));
 
 export const CustomButton = styled("button")<ButtonProps>(
@@ -60,7 +61,8 @@ export const CustomButton = styled("button")<ButtonProps>(
         ? "red"
         : textColor === "grey"
         ? "grey"
-        : theme.palette.primary.main,
+        : textColor === "blue" ? "blue" : 
+        theme.palette.primary.main,
     letterSpacing: "1px",
     fontSize: "1rem",
     backgroundColor:
@@ -74,7 +76,7 @@ export const CustomButton = styled("button")<ButtonProps>(
         ? "1px solid red"
         : border === "grey"
         ? "1px solid grey"
-        : "none",
+        :border === "blue" ? "2px solid blue" : "none",
     padding: padding ? "1.2rem 3rem" : "1.5rem 5rem",
     borderRadius: "2.5rem",
     margin: margin ? " 1.5rem 2rem" : "2rem 2rem",

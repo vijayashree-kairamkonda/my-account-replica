@@ -1,7 +1,6 @@
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { CardHeader, Grid, Stack } from "@mui/material";
-import { StyledLink } from "../../components/Header";
 import { StyledLabel } from "../../components/styledComponents";
 import { StyledCard, StyledIcon, StyledTitle } from "./AccountProfile";
 import { StyledElement } from "./AccBillingPref";
@@ -12,7 +11,7 @@ export const AccountSettings = () => {
       <StyledCard>
         <CardHeader
           avatar={
-            <StyledIcon>
+            <StyledIcon iconColor="green">
               <SettingsSuggestIcon />
             </StyledIcon>
           }
