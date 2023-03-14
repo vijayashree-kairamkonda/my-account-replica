@@ -1,13 +1,17 @@
 import React from "react";
 import PersonIcon from "@mui/icons-material/Person";
 import { IconButton, Stack, styled } from "@mui/material";
-import InputBase from "@mui/material/InputBase";
 import { StyledBar, StyledImg } from "./styledComponents";
 import { toAbsoluteUrl } from "../constants";
 import { NavList } from "./NavList";
 import { NavProps } from "./NavList";
 import { Link, Outlet } from "react-router-dom";
 import { StyledP } from "./shared/CustomModal/CustomModalStlyes";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import CircleNotificationsOutlinedIcon from "@mui/icons-material/CircleNotificationsOutlined";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 
 interface LinkProps {
   nav: boolean;
@@ -15,19 +19,29 @@ interface LinkProps {
 
 export const Header = () => {
   const navLinks: NavProps[] = [
-    { name: " Home", link: "/home" },
-    { name: "Billing", link: "/billing" },
+    { name: " Home", link: "/home", icon: <HomeOutlinedIcon /> },
+    { name: "Billing", link: "/billing", icon: <MonetizationOnOutlinedIcon /> },
     {
       name: "Account",
       link: "/account",
+      icon: <AccountCircleOutlinedIcon />,
     },
-    { name: "Notifications", link: "/notifications" },
-    { name: "Support", link: "/support" },
+    {
+      name: "Notifications",
+      link: "/notifications",
+      icon: <CircleNotificationsOutlinedIcon />,
+    },
+    { name: "Support", link: "/support", icon: <HelpOutlineOutlinedIcon /> },
   ];
 
   return (
     <>
       <StyledBar>
+        <CustomBar>
+          <Bar green></Bar>
+          <Bar lightBlue></Bar>
+          <Bar darkBlue></Bar>
+        </CustomBar>
         <StyledBar>
           <Stack
             direction="row"
@@ -48,7 +62,6 @@ export const Header = () => {
                 <PersonIcon
                   sx={{
                     color: "green",
-                    // display: { xs: "none", sm: "none", md: "block" },
                   }}
                 />
               </IconButton>
@@ -90,8 +103,34 @@ export const Header = () => {
   );
 };
 
+export interface BarProps {
+  lightBlue?: boolean;
+  darkBlue?: boolean;
+  green?: boolean;
+}
+
 export const StyledLink = styled(Link)<LinkProps>(({ theme, nav }) => ({
   color: nav ? "blue" : "black",
   textDecoration: "none",
   fontSize: "1rem",
 }));
+
+export const CustomBar = styled("div")(({ theme }) => ({
+  display: "flex",
+  margin: "0 0.2rem",
+  position: "sticky",
+  top: 0,
+  zIndex: 1,
+}));
+
+export const Bar = styled("div")<BarProps>(
+  ({ theme, lightBlue, darkBlue, green }) => ({
+    width: green ? "50%" : lightBlue ? "30%" : darkBlue ? "20%" : 0,
+    backgroundColor: lightBlue ? "#02caff" : darkBlue ? "darkblue" : "green",
+    height: 6,
+    borderTopLeftRadius: green ? 4 : 0,
+    borderBottomLeftRadius: green ? 4 : 0,
+    borderTopRightRadius: darkBlue ? 4 : 0,
+    borderBottomRightRadius: darkBlue ? 4 : 0,
+  })
+);

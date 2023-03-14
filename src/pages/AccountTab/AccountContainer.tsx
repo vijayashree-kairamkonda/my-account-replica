@@ -20,9 +20,9 @@ export const AccountContainer = () => {
     <>
       <Container maxWidth="md">
         <Stack direction={"row"} spacing={16} p={0} flexWrap={"wrap"}>
-          <NavList navLinks={accountLinks} />
+          {/* <NavList navLinks={accountLinks} /> */}
         </Stack>
-        <StyledDivider />
+        {/* <StyledDivider /> */}
         <Outlet />
       </Container>
     </>

@@ -20,7 +20,7 @@ export const Account = () => {
   return (
     <Container>
       <Breadcrumbs separator="›">{breadcrumbs}</Breadcrumbs>
-      <Content>
+      {/* <Content>
         <p>
           Hi Victoria, welcome to Ziply Fiber! You have not verified your email
           ziplygignow@gmail.com.
@@ -33,7 +33,7 @@ export const Account = () => {
           Verify now
         </StyledLink>
       </Content>
-      <br />
+      <br /> */}
       <AccountContainer />
     </Container>
   );

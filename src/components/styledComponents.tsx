@@ -34,9 +34,11 @@ position : sticky
 
 export const StyledBar = styled("section")<StyleBarProps>(
   ({ theme, boxShadow, background }) => ({
-    background:  "#ffffff" ,
+    backgroundColor:  "#ffffff" ,
     paddingHorizontal: "80px",
     position: "sticky",
+    top:0,
+    zIndex:1,
     boxShadow: boxShadow ? "0px 3px 4px 0px rgb(193, 193, 193)" : "none",
   })
 );

@@ -53,7 +53,7 @@ export const AlertComponent = ({ type }: any) => {
           >
             <Stack direction={"row"} alignItems={"center"} spacing={1}>
               <p>You have not verified your mobile number 1112223333.</p>
-              <StyledElement> Verify now </StyledElement>
+              <StyledElement variant="inherit"> Verify now </StyledElement>
             </Stack>
           </NotificationAlert>
         </Box>
@@ -86,7 +86,10 @@ export const AlertComponent = ({ type }: any) => {
           >
             <Stack direction={"row"} alignItems={"center"} spacing={1}>
               <p>Payment Success.</p>
-              <StyledElement> View Bill Invoice </StyledElement>
+              <StyledElement variant="inherit">
+                {" "}
+                View Bill Invoice{" "}
+              </StyledElement>
             </Stack>
           </NotificationAlert>
         </Box>
@@ -120,7 +123,7 @@ export const AlertComponent = ({ type }: any) => {
           >
             <Stack direction={"row"} alignItems={"center"} spacing={1}>
               <p>Payment Due.</p>
-              <StyledElement> Pay now </StyledElement>
+              <StyledElement variant="inherit"> Pay now </StyledElement>
             </Stack>
           </NotificationAlert>
         </Box>
@@ -154,7 +157,7 @@ export const AlertComponent = ({ type }: any) => {
           >
             <Stack direction={"row"} alignItems={"center"} spacing={1}>
               <p>Update your payment method.</p>
-              <StyledElement> Update now </StyledElement>
+              <StyledElement variant="inherit"> Update now </StyledElement>
             </Stack>
           </NotificationAlert>
         </Box>

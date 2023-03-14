@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import DescriptionSharpIcon from "@mui/icons-material/DescriptionSharp";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 import {
   CardHeader,
   Grid,
@@ -19,6 +19,10 @@ import {
 import { useState } from "react";
 import { CustomModal } from "../../components/shared/CustomModal/CustomModal";
 import { CustomSnackbar } from "../../components/shared/CustomSnackBar";
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export const AccountBillingPreference = () => {
   const [manageModal, setManageModal] = useState(false);
@@ -76,21 +80,21 @@ export const AccountBillingPreference = () => {
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={6}>
             <FormControl fullWidth>
-              <Stack
+              {/* <Stack
                 direction="row"
                 justifyContent={"space-between"}
                 width="95%"
-              >
+              > */}
                 <StyledLabel>AutoPay </StyledLabel>
-                <StyledElement
+                {/* <StyledElement
                   variant="inherit"
                   onClick={() => {
                     setManageModal(true);
                   }}
                 >
                   Manage
-                </StyledElement>
-              </Stack>
+                </StyledElement> */}
+              {/* </Stack> */}
               <StyledInput />
             </FormControl>
           </Grid>
@@ -102,7 +106,7 @@ export const AccountBillingPreference = () => {
                 width="95%"
               >
                 <StyledLabel>Paperless Billing </StyledLabel>
-                {mode === "Turn On" ? (
+                {/* {mode === "Turn On" ? (
                   <StyledElement
                     variant="inherit"
                     onClick={() => {
@@ -120,13 +124,14 @@ export const AccountBillingPreference = () => {
                   >
                     {mode}
                   </StyledElement>
-                ) : null}
+                ) : null} */}
+                <StyledElement variant="inherit">Turn Off</StyledElement>
               </Stack>
               <StyledInput />
             </FormControl>
           </Grid>
           <Grid item>
-            <Stack direction="row" width="100%" spacing={15}>
+            {/* <Stack direction="row" width="100%" spacing={15}>
               <StyledElement
                 onClick={() => {
                   setPaymentModal(true);
@@ -135,12 +140,27 @@ export const AccountBillingPreference = () => {
                 <StyledLabel>Manage Payment Method</StyledLabel>
               </StyledElement>
               <StyledLink to={""} nav={true}>
-                <ArrowForwardIosIcon />
+                <ExpandMoreOutlinedIcon fontSize="large" />
               </StyledLink>
-            </Stack>
+            </Stack> */}
+            <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreOutlinedIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Manage AutoPay</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
           </Grid>
         </Grid>
-        <CustomModal
+        {/* <CustomModal
           open={manageModal}
           onClose={handleCloseModal}
           type={"manage"}
@@ -166,7 +186,7 @@ export const AccountBillingPreference = () => {
         <CustomSnackbar
           visible={snackBarVisibility}
           snack={setSnackBarVisibility}
-        />
+        /> */}
       </StyledCard>
     </>
   );

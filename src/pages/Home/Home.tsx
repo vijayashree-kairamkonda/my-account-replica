@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Breadcrumbs, Container, Stack } from "@mui/material";
+import { Box, Breadcrumbs, Container, Icon, Stack } from "@mui/material";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { TiWiFi } from "react-icons/ti";
 import { useLocation } from "react-router-dom";
@@ -10,6 +10,8 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import { AlertComponent } from "./components/AlertComponent";
 import { TotalBalanceCard } from "./components/TotalBalanceCard";
 import LocalOfferSharpIcon from "@mui/icons-material/LocalOfferSharp";
+import { OfferCarousel } from "./components/OfferCarousel";
+import { StyledElement } from "../AccountTab/AccBillingPref";
 
 export const Home = () => {
   const { pathname } = useLocation();
@@ -17,7 +19,7 @@ export const Home = () => {
 
   const breadcrumbs = [
     <StyledLink nav={false} key="1" color="inherit" to="/">
-     My Account
+      My Account
     </StyledLink>,
     <StyledLink nav={false} key="2" color="inherit" to="/account/profile">
       {path}
@@ -25,8 +27,10 @@ export const Home = () => {
   ];
   return (
     <>
-      <Container maxWidth="xl">
-        <Breadcrumbs separator="›" sx={{marginY:2}}>{breadcrumbs}</Breadcrumbs>
+      <Container maxWidth="xl" sx={{ position: "relative" }}>
+        <Breadcrumbs separator="›" sx={{ marginY: 2 }}>
+          {breadcrumbs}
+        </Breadcrumbs>
         <StyledStack>
           <Stack direction={"row"} spacing={2} alignItems={"center"}>
             <StyledIcon backgroundColor="green" padding={true}>
@@ -51,7 +55,7 @@ export const Home = () => {
         </StyledStack>
         <Stack
           direction={"row"}
-          spacing={60}
+          spacing={62}
           alignItems={"center"}
           flexWrap={"wrap"}
         >
@@ -68,23 +72,29 @@ export const Home = () => {
             <StyledTitle>Recent Notifications</StyledTitle>
           </Stack>
         </Stack>
+        <Stack direction={"row"}>
+          <StyledElement sx={{ marginLeft: "auto" }} variant="inherit">
+            Mark all as read
+          </StyledElement>
+        </Stack>
         <Stack direction={"row"} spacing={5}>
-          <Box>
+          <Box width="50%">
             <TotalBalanceCard />
           </Box>
-          <Box width="50%">
+          <Box width="60%">
             <AlertComponent type={"primary"} />
             <AlertComponent type={"success"} />
             <AlertComponent type={"error"} />
             <AlertComponent type={"secondary"} />
           </Box>
         </Stack>
-        <Stack direction={"row"} alignItems={"center"} spacing={2}>
+        <Stack direction={"row"} alignItems={"center"} spacing={2} paddingY={2}>
           <StyledIcon iconColor="green">
             <LocalOfferSharpIcon />
           </StyledIcon>
           <StyledTitle>Special Offers</StyledTitle>
         </Stack>
+        <OfferCarousel />
       </Container>
     </>
   );
